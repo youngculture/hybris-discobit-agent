@@ -1,5 +1,14 @@
+
+buildscript {
+  repositories { jcenter() }
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:1.1.1'
+  }
+}
+
 apply plugin: "java"
 apply plugin: "eclipse"
+apply plugin: 'com.github.johnrengelman.shadow'
 
 repositories {
 	mavenCentral()
@@ -19,5 +28,18 @@ configurations {
 }
 
 dependencies {
-	   compile "com.mashape.unirest:unirest-java:1.3.20"
+	   compile ("com.mashape.unirest:unirest-java:1.3.20")
+}
+
+jar {
+  manifest {
+    attributes(
+    	"Premain-Class": "com.youngculture.ecom.hybris.discobit.HybrisDiscobitAgent", 
+    	"Main-Class": "com.youngculture.ecom.hybris.discobit.HybrisDiscobitAgent")
+  }
+}
+
+shadowJar {
+  relocate 'org.apache', 'deps.org.apache'
+  relocate 'org.json', 'deps.org.json'
 }

@@ -1,1 +1,0 @@
-Premain-Class: com.youngculture.ecom.hybris.discobit.HybrisDiscobitAgent

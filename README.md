@@ -1,5 +1,16 @@
-discobit-client-java
+hybris-discobit-agent
 ====================
+
+
+[y] Hybris discoBit remote configuration
+-----------------------------------------------------------------
+This is a fork of discoBits' REST client implementation. The additional Java Agent will connect to a discoBit repository, fetch remote properties via configuration UUID and finally inject those into the system context when Hybris is bootstrapped.
+
+See the wiki for details on setup.
+
+
+
+Original README.md:
 
 discoBit - Remote Application Configuration Management
 ------------------------------------------------------------------
@@ -17,4 +28,3 @@ See www.discobit.com
 
 # Java Client Library - Usage
 This library eases access to the REST based API for discoBit. 
-

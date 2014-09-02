@@ -24,9 +24,7 @@ public class HybrisDiscobitAgent {
 		execute();
 	}
 	
-	
 	private static void execute(){
-		log.info("executing");
 		DiscobitSettings settings = new DiscobitSettings();
 		try {
 			log.info("Reading discobit configuration from " + settings.getServerURL() + "::" + settings.getDefaultConfigurationUUID());
@@ -46,13 +44,12 @@ public class HybrisDiscobitAgent {
 			log.info("injected " + props.size() + " properties to system context");
 
 		} catch (DiscobitOperationException e) {
-			e.printStackTrace();
+			log.warning(e.getMessage());
 		} finally {
 			try {
 				Unirest.shutdown();
-				log.info("unirest shutdown");
 			} catch (IOException e) {
-				e.printStackTrace();
+				log.warning(e.getMessage());
 			}
 		}
 	}
